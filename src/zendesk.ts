@@ -1,5 +1,5 @@
 
-import axios, { AxiosInstance, AxiosResponse } from 'axios';
+import axios, { AxiosInstance } from 'axios';
 import { Base64 } from 'js-base64';
 import { Users } from './model/Users';
 
@@ -46,7 +46,7 @@ export class Zendesk {
 
 
 
-  async testAuth(callback){
+  async testAuth(callback: any){
 
     try {
       const response = await this.axios.get(this.remoteUri + "/users/me", {

@@ -1,5 +1,5 @@
 
-import axios, { AxiosInstance, AxiosResponse } from 'axios';
+import axios, { AxiosInstance } from 'axios';
 import { Base64 } from 'js-base64';
 
 export class Users {
@@ -23,7 +23,7 @@ export class Users {
 
   }
 
-    async get(id: string, callback){
+    async get(id: string, callback: any){
         try {
             const response = await this.axios.get(this.remoteUri + "/users/" + id + ".json", {
             headers: {
@@ -35,7 +35,7 @@ export class Users {
         }
     }
 
-    async create(json: string, callback){
+    async create(json: string, callback: any){
         try {
             const response = await this.axios.post(this.remoteUri + "/users.json", {
             headers: {
@@ -48,7 +48,7 @@ export class Users {
         }
     }
 
-    async createOrUpdate(json: string, callback){
+    async createOrUpdate(json: string, callback: any){
         try {
             const response = await this.axios.post(this.remoteUri + "/users/create_or_update.json", {
             headers: {
@@ -61,7 +61,7 @@ export class Users {
         }
     }
 
-        async delete(id: string, callback){
+        async delete(id: string, callback: any){
         try {
             const response = await this.axios.post(this.remoteUri + "/users/"+id+".json", {
             headers: {
@@ -73,7 +73,7 @@ export class Users {
         }
     }
 
-    async getAll(callback){
+    async getAll(callback: any){
         try {
             const response = await this.axios.get(this.remoteUri + "/users", {
             headers: {
