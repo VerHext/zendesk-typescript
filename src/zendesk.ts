@@ -1,6 +1,8 @@
 
 import axios, { AxiosInstance, AxiosResponse } from 'axios';
 import { Base64 } from 'js-base64';
+import { Users } from './model/Users';
+
 
 export class Zendesk {
 
@@ -8,6 +10,9 @@ export class Zendesk {
   private remoteUri: string;
   private authToken: string;
   private username: string;
+
+
+  public people: Users;
    /**
    * Axios HTTP client instance used by this client
    */
@@ -34,7 +39,12 @@ export class Zendesk {
       maxRedirects: 0,
       proxy: false
     });
+
+
+    this.people= new Users(this.username, this.authToken, this.remoteUri);
   }
+
+
 
   async testAuth(callback){
 
@@ -43,14 +53,19 @@ export class Zendesk {
       headers: {
         'Authorization': 'Basic ' + Base64.encode(this.username + ":" + this.authToken)
         }});
-        if (response.data.user.id != null)
+        if (response.data.user.id != null){
             callback(true)
-
+        }else{
             callback(false)
+        }
+
     } catch (error) {
+
         callback(false)
     }
 
   }
+
+
 
 }
