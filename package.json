@@ -1,14 +1,22 @@
 {
   "name": "zendesk-typescript",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "This is a lite Zendesk Typescript API",
   "main": "dist/zendesk.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist/**/*"
+  ],
+  "dependencies": {
+    "@types/js-base64": "^2.3.1",
+    "axios": "^0.19.0",
+    "js-base64": "^2.5.1"
+  },
+  "devDependencies": {},
   "scripts": {
-    "prepare": "npm run build",
     "build": "npm run build:clean && tsc",
     "build:clean": "rm -rf ./dist",
-    "clean": "rm -rf ./dist",
-    "lint": "tslint --project ."
+    "clean": "rm -rf ./dist"
   },
   "repository": {
     "type": "git",
@@ -24,13 +32,5 @@
   "bugs": {
     "url": "https://github.com/VerHext/zendesk-typescript/issues"
   },
-  "homepage": "https://github.com/VerHext/zendesk-typescript#readme",
-  "dependencies": {
-    "@types/js-base64": "^2.3.1",
-    "axios": "^0.19.0",
-    "js-base64": "^2.5.1"
-  },
-  "devDependencies": {
-    "@types/es6-shim": "^0.31.39"
-  }
+  "homepage": "https://github.com/VerHext/zendesk-typescript#readme"
 }
